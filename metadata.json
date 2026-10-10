@@ -1,0 +1,8 @@
+{
+  "name": "TextUtil",
+  "description": "An all-in-one text editing, text analysis, AI writing, and developer productivity platform.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
