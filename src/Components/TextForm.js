@@ -62,27 +62,12 @@ export default function TextForm({ showAlert }) {
   const fileInputRef = useRef(null);
   const textareaRef = useRef(null);
 
-  // Restore previous session from localStorage on mount
+  // Start with clean empty editor by default
   useEffect(() => {
-    try {
-      const saved = localStorage.getItem('textutil_draft');
-      if (saved) {
-        setText(saved);
-        setOriginalText(saved);
-        setHistory([saved]);
-        setHistoryIndex(0);
-      } else {
-        setText(SAMPLES.essay);
-        setOriginalText(SAMPLES.essay);
-        setHistory([SAMPLES.essay]);
-        setHistoryIndex(0);
-      }
-    } catch {
-      setText(SAMPLES.essay);
-      setOriginalText(SAMPLES.essay);
-      setHistory([SAMPLES.essay]);
-      setHistoryIndex(0);
-    }
+    setText('');
+    setOriginalText('');
+    setHistory(['']);
+    setHistoryIndex(0);
   }, []);
 
   // Debounced Auto-save

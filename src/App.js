@@ -21,14 +21,13 @@ import './App.css';
 function MainApp() {
   const navigate = useNavigate();
 
-  // Theme State
+  // Theme State: default to light mode
   const [mode, setMode] = useState(() => {
     try {
       const saved = localStorage.getItem('textutil_theme');
-      if (saved) return saved;
-      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      return saved ? saved : 'light';
     } catch {
-      return 'dark';
+      return 'light';
     }
   });
 

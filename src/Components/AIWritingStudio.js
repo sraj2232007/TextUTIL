@@ -75,12 +75,7 @@ export default function AIWritingStudio({ showAlert, onApplyToWorkspace }) {
       })
       .catch(() => {});
 
-    try {
-      const draft = localStorage.getItem('textutil_draft');
-      if (draft && draft.trim()) {
-        setInputText(draft);
-      }
-    } catch {}
+    setInputText('');
   }, []);
 
   const handleGenerate = async () => {

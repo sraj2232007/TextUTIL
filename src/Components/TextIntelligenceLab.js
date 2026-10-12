@@ -15,17 +15,8 @@ export default function TextIntelligenceLab({ showAlert }) {
   const [compareMode, setCompareMode] = useState(false);
 
   useEffect(() => {
-    try {
-      const draft = localStorage.getItem('textutil_draft');
-      if (draft && draft.trim()) {
-        setText(draft);
-        setBaselineText(draft);
-      } else {
-        const sample = `The proliferation of distributed cloud infrastructure has fundamentally transformed modern software delivery. Traditional monolithic deployments required extensive downtime windows and coordinated system restarts across server clusters. In contrast, containerized microservices and automated continuous delivery pipelines now enable engineering teams to release production updates continuously. However, as distributed systems expand in complexity, maintaining observability across decoupled network nodes becomes increasingly difficult. It is argued by many specialists that architectural simplicity must remain the guiding principle of sustainable software engineering.`;
-        setText(sample);
-        setBaselineText(sample);
-      }
-    } catch {}
+    setText('');
+    setBaselineText('');
   }, []);
 
   const analysis = useMemo(() => analyzeTextIntelligence(text), [text]);
